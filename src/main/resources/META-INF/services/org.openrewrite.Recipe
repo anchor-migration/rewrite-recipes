@@ -1,1 +1,2 @@
 com.anchor.migration.rewrite.smoke.AddAnchorProbeComment
+com.anchor.migration.rewrite.session.ExtractSessionBeanStateSpike

@@ -242,11 +242,11 @@ Update [recipe-families.md](recipe-families.md) when each recipe is scheduled.
 
 | Role | Assessment |
 |------|------------|
-| **Pragmatist** | 3.3 scope locked; matrix sufficient to start 3.1b / 3.3 planning |
+| **Pragmatist** | 3.3 scope locked; matrix sufficient to start 3.2 session chain / 3.3 planning |
 | **Critic** | M:N, FK CMR, NextId, EJB-QL explicitly deferred — no hidden scope |
 | **Suggester** | Optional: add `relationship_maps_to_table` crosswalk edges before v0.4a |
 
-**Next gate:** **3.1b** — Session→Service `BeanState` spike on `AccountControllerBean` ([ADR-007](https://github.com/anchor-migration/migration-hub/blob/main/docs/ADR-007-rewrite-recipes-session-and-cmp-jpa.md)).
+**Next gate:** **3.2** — Session→Service recipe chain on `AccountControllerBean` ([ADR-007](https://github.com/anchor-migration/migration-hub/blob/main/docs/ADR-007-rewrite-recipes-session-and-cmp-jpa.md)); 3.1b spike complete — [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md).
 
 ---
 
