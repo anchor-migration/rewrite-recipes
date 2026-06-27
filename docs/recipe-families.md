@@ -15,6 +15,13 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 |--------|--------|------|
 | `AddAnchorProbeComment` | harness | — |
 
+## Stack migration — CMP→JPA (ADR-007)
+
+| Artifact | Status |
+|----------|--------|
+| [cmp-jpa-capability-matrix.md](cmp-jpa-capability-matrix.md) | ✅ 3.1a |
+| `CmpScalarEntityToJpa` (`AccountBean`) | 📋 3.3 |
+
 Future recipes add rows here before implementation.
 
 ## Recommended run order
