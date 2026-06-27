@@ -1,0 +1,10 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.rewrite.smoke.AddAnchorProbeComment
+displayName: Add Anchor Migration probe comment
+description: Harness smoke recipe — prepends a probe line comment to Java types.
+tags:
+  - anchor-migration
+  - smoke
+recipeList:
+  - com.anchor.migration.rewrite.smoke.AddAnchorProbeComment
