@@ -1,0 +1,16 @@
+# Containerized Maven — no host JDK/Maven required.
+# Usage: docker compose run --rm mvn mvn -B test
+# Or:    .\scripts\run-test.ps1
+
+services:
+  mvn:
+    image: maven:3.9-eclipse-temurin-17
+    working_dir: /app
+    volumes:
+      - .:/app
+      # Named volume keeps Maven Central downloads off the host filesystem.
+      - m2-cache:/root/.m2
+
+volumes:
+  m2-cache:
+    name: anchor-rewrite-recipes-m2
