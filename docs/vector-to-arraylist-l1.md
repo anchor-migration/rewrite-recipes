@@ -17,9 +17,9 @@
 | In scope | Out of scope |
 |----------|--------------|
 | `java.util.Vector` → `java.util.ArrayList` | Adding generic type parameters (L2) |
-| `java.util.Hashtable` → `java.util.HashMap` (via L1 composite) | Tuple-list detection (M2) |
+| `java.util.Hashtable` → `java.util.HashMap` (via L1 composite) | L2 generic typing (M3) |
 | `java.lang.StringBuffer` → `java.lang.StringBuilder` (via L1 composite) | Thread-safety semantics review |
-| Import rewrite for the above | |
+| Import rewrite for the above | Tuple-list gate — use [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) (M2 ✅) before L2 |
 
 **Modernization tier:** L1 — mechanical API swap only. Use **`LanguageModernizationL1`** (not the Java wrapper alone) for full L1 coverage.
 
@@ -46,4 +46,4 @@ Run: `.\scripts\run-test.ps1`
 
 ## 4. Next
 
-ADR-008 M2 — list usage classifier (homogeneous / tuple / unknown) before L2/L3 recipes.
+ADR-008 M3 — L2 homogeneous recipe; run [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) first and skip `tuple` sites.

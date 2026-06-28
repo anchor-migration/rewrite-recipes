@@ -40,6 +40,7 @@ Details: [rewrite-presets.md](rewrite-presets.md)
 | Artifact | Status |
 |----------|--------|
 | [vector-to-arraylist-l1.md](vector-to-arraylist-l1.md) | ✅ M1 / L1 (prefer `LanguageModernizationL1` YAML) |
+| [classify-lists (java-ast-ssot)](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) | ✅ M2 — run before L2/L3 |
 | L2 homogeneous raw `ArrayList` typing | 📋 M3 |
 | L3 tuple list → result class | 📋 M4 |
 
@@ -49,4 +50,4 @@ Use preset **`com.anchor.migration.presets.DukesBankStackMigration`** for the fu
 
 1. **L1** — `LanguageL1Only` preset (or `LanguageModernizationL1`)
 2. **Stack** — session + CMP recipes
-3. **L2/L3** after list classifier report (ADR-008 M2)
+3. **L2/L3** after [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) report (ADR-008 M2 ✅)
