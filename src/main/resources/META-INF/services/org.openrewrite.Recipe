@@ -1,2 +1,7 @@
-com.anchor.migration.rewrite.smoke.AddAnchorProbeComment
-com.anchor.migration.rewrite.session.ExtractSessionBeanStateSpike
+com.anchor.migration.rewrite.smoke.AddAnchorProbeComment
+com.anchor.migration.rewrite.session.ExtractSessionBeanStateSpike
+com.anchor.migration.rewrite.session.ExtractSessionBeanState
+com.anchor.migration.rewrite.session.ThreadBeanStateThroughMethods
+com.anchor.migration.rewrite.session.DeclareSpringService
+com.anchor.migration.rewrite.session.RemoveSessionBeanLifecycle
+com.anchor.migration.rewrite.session.SessionBeanToSpringService

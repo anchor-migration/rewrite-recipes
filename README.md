@@ -27,8 +27,7 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] Duke's Bank–style raw-type fixture test (`OrderImports`)
 - [x] CMP→JPA capability matrix (3.1a) — [docs/cmp-jpa-capability-matrix.md](docs/cmp-jpa-capability-matrix.md)
 - [x] Session `BeanState` spike (3.1b) — [docs/session-beanstate-spike-account-controller.md](docs/session-beanstate-spike-account-controller.md)
-
-- [ ] Session→Service recipe chain (ADR-007 §3.2)
+- [x] Session→Service recipe chain (3.2) — [docs/session-bean-to-spring-service-account-controller.md](docs/session-bean-to-spring-service-account-controller.md)
 
 - [ ] CMP→JPA scalar entity (ADR-007 §3.3)
 

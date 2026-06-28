@@ -21,7 +21,7 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 |----------|--------|
 | [cmp-jpa-capability-matrix.md](cmp-jpa-capability-matrix.md) | ✅ 3.1a |
 | [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md) | ✅ 3.1b |
-| `ExtractSessionBeanState` / `DeclareSpringService` (3.2) | 📋 |
+| [session-bean-to-spring-service-account-controller.md](session-bean-to-spring-service-account-controller.md) | ✅ 3.2 |
 | `CmpScalarEntityToJpa` (`AccountBean`) | 📋 3.3 |
 
 Future recipes add rows here before implementation.

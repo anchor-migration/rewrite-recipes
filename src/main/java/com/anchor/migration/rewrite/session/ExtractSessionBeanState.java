@@ -15,13 +15,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * 3.1b spike — moves selected session instance fields into a {@code BeanState} inner class
- * and threads {@code BeanState state} through named methods (ADR-007 §3.1b–3.2).
- *
- * <p>Field access rewrite ({@code accountHome} → {@code state.accountHome}) is intentionally
- * omitted; use {@link ThreadBeanStateThroughMethods} in the 3.2 chain.
+ * A2a — moves session instance fields into a {@code BeanState} inner class (ADR-007 §3.2).
  */
-public class ExtractSessionBeanStateSpike extends Recipe {
+public class ExtractSessionBeanState extends Recipe {
 
     @Option(
             displayName = "Target class simple name",
@@ -35,39 +31,28 @@ public class ExtractSessionBeanStateSpike extends Recipe {
             example = "accountHome,customerHome,nextIdHome")
     List<String> stateFieldNames = SessionBeanStateSupport.DEFAULT_STATE_FIELD_NAMES;
 
-    @Option(
-            displayName = "Method names",
-            description = "Methods that receive BeanState as the first parameter.",
-            example = "removeAccount")
-    List<String> methodNames = List.of("removeAccount");
-
     @Override
     public String getDisplayName() {
-        return "Extract session BeanState (3.1b spike)";
+        return "Extract session BeanState";
     }
 
     @Override
     public String getDescription() {
-        return "Introduces a BeanState inner class, moves selected fields into it, and threads "
-                + "BeanState through named methods. Spike for AccountControllerBean per ADR-007 §3.1b.";
+        return "Introduces a static BeanState inner class and moves selected instance fields into it.";
     }
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
-        return new ExtractSessionBeanStateSpikeVisitor(
-                targetClassName, new HashSet<>(stateFieldNames), new HashSet<>(methodNames));
+        return new ExtractSessionBeanStateVisitor(targetClassName, new HashSet<>(stateFieldNames));
     }
 
-    static final class ExtractSessionBeanStateSpikeVisitor extends JavaIsoVisitor<ExecutionContext> {
+    static final class ExtractSessionBeanStateVisitor extends JavaIsoVisitor<ExecutionContext> {
         private final String targetClassName;
         private final Set<String> stateFieldNames;
-        private final Set<String> methodNames;
 
-        ExtractSessionBeanStateSpikeVisitor(
-                String targetClassName, Set<String> stateFieldNames, Set<String> methodNames) {
+        ExtractSessionBeanStateVisitor(String targetClassName, Set<String> stateFieldNames) {
             this.targetClassName = targetClassName;
             this.stateFieldNames = stateFieldNames;
-            this.methodNames = methodNames;
         }
 
         @Override
@@ -101,18 +86,7 @@ public class ExtractSessionBeanStateSpike extends Recipe {
             newBody.add(inner);
             newBody.addAll(withoutStateFields);
 
-            J.ClassDeclaration withInner = visited.withBody(visited.getBody().withStatements(newBody));
-
-            List<Statement> withParams = new ArrayList<>();
-            for (Statement statement : withInner.getBody().getStatements()) {
-                if (statement instanceof J.MethodDeclaration method
-                        && methodNames.contains(method.getName().getSimpleName())) {
-                    withParams.add(SessionBeanStateSupport.addBeanStateParameter(method));
-                } else {
-                    withParams.add(statement);
-                }
-            }
-            return withInner.withBody(withInner.getBody().withStatements(withParams));
+            return visited.withBody(visited.getBody().withStatements(newBody));
         }
     }
 }

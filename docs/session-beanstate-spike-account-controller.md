@@ -152,7 +152,7 @@ Web tier / `AccountControllerHome.create()` replacement is **out of scope** unti
 | Design doc (this file) | ✅ |
 | `ExtractSessionBeanStateSpike` recipe | ✅ (structure + parameter) |
 | `AccountControllerBeanStateSpikeTest` rewrite-test | ✅ (`.\scripts\run-test.ps1`) |
-| Field access `accountHome` → `state.accountHome` in method body | 📋 **3.2a** (`ThreadBeanStateThroughMethods`) |
+| Field access `accountHome` → `state.accountHome` in method body | ✅ **3.2** (`ThreadBeanStateThroughMethods`) |
 | Full `AccountControllerBean` on disk | Manual review — source at `C:\github\dukesbank` |
 | `java-ast-ssot export` diff | Deferred to 3.2 |
 | `parity-verify` | Not available |

@@ -246,7 +246,7 @@ Update [recipe-families.md](recipe-families.md) when each recipe is scheduled.
 | **Critic** | M:N, FK CMR, NextId, EJB-QL explicitly deferred — no hidden scope |
 | **Suggester** | Optional: add `relationship_maps_to_table` crosswalk edges before v0.4a |
 
-**Next gate:** **3.2** — Session→Service recipe chain on `AccountControllerBean` ([ADR-007](https://github.com/anchor-migration/migration-hub/blob/main/docs/ADR-007-rewrite-recipes-session-and-cmp-jpa.md)); 3.1b spike complete — [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md).
+**Next gate:** **3.3** — `CmpScalarEntityToJpa` for `AccountBean` only ([ADR-007](https://github.com/anchor-migration/migration-hub/blob/main/docs/ADR-007-rewrite-recipes-session-and-cmp-jpa.md)); 3.2 Session→Service chain complete — [session-bean-to-spring-service-account-controller.md](session-bean-to-spring-service-account-controller.md).
 
 ---
 
