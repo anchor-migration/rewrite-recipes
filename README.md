@@ -28,10 +28,8 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] CMP→JPA capability matrix (3.1a) — [docs/cmp-jpa-capability-matrix.md](docs/cmp-jpa-capability-matrix.md)
 - [x] Session `BeanState` spike (3.1b) — [docs/session-beanstate-spike-account-controller.md](docs/session-beanstate-spike-account-controller.md)
 - [x] Session→Service recipe chain (3.2) — [docs/session-bean-to-spring-service-account-controller.md](docs/session-bean-to-spring-service-account-controller.md)
-
-- [ ] CMP→JPA scalar entity (ADR-007 §3.3)
-
-- [ ] L1 `Vector`→`ArrayList` (ADR-008 M1)
+- [x] CMP→JPA scalar entity (3.3) — [docs/cmp-scalar-entity-to-jpa-account-bean.md](docs/cmp-scalar-entity-to-jpa-account-bean.md)
+- [x] L1 `Vector`→`ArrayList` (ADR-008 M1) — [docs/vector-to-arraylist-l1.md](docs/vector-to-arraylist-l1.md)
 
 
 

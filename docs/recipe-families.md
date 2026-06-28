@@ -22,9 +22,16 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 | [cmp-jpa-capability-matrix.md](cmp-jpa-capability-matrix.md) | ✅ 3.1a |
 | [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md) | ✅ 3.1b |
 | [session-bean-to-spring-service-account-controller.md](session-bean-to-spring-service-account-controller.md) | ✅ 3.2 |
-| `CmpScalarEntityToJpa` (`AccountBean`) | 📋 3.3 |
+| [cmp-scalar-entity-to-jpa-account-bean.md](cmp-scalar-entity-to-jpa-account-bean.md) | ✅ 3.3 |
+| `CmpManyToManyToJpa` | 📋 v0.4 |
 
-Future recipes add rows here before implementation.
+## Language modernization (ADR-008)
+
+| Artifact | Status |
+|----------|--------|
+| [vector-to-arraylist-l1.md](vector-to-arraylist-l1.md) | ✅ M1 / L1 |
+| L2 homogeneous raw `ArrayList` typing | 📋 M3 |
+| L3 tuple list → result class | 📋 M4 |
 
 ## Recommended run order
 
