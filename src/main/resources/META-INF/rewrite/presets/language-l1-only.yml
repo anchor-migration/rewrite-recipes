@@ -1,0 +1,14 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.presets.LanguageL1Only
+displayName: Language modernization L1 only
+description: |
+  ADR-008 M1 — mechanical Vector / Hashtable / StringBuffer swaps.
+  Run before stack migration presets on the same sources (ADR-008 run order).
+tags:
+  - anchor-migration
+  - preset
+  - language-modernization
+recipeFamily: language-modernization
+recipeList:
+  - com.anchor.migration.rewrite.lang.LanguageModernizationL1

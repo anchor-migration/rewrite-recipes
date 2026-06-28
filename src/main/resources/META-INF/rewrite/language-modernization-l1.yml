@@ -1,0 +1,19 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.rewrite.lang.LanguageModernizationL1
+displayName: Language modernization L1 (mechanical API swap)
+description: ADR-008 tier L1 — replaces legacy synchronized APIs with modern equivalents. Does not add generics (L2) or tuple-list refactors (L3).
+tags:
+  - anchor-migration
+  - language-modernization
+  - tier-L1
+recipeList:
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: java.util.Vector
+      newFullyQualifiedTypeName: java.util.ArrayList
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: java.util.Hashtable
+      newFullyQualifiedTypeName: java.util.HashMap
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: java.lang.StringBuffer
+      newFullyQualifiedTypeName: java.lang.StringBuilder

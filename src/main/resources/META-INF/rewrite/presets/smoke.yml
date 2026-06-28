@@ -1,0 +1,13 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.presets.Smoke
+displayName: Smoke preset
+description: |
+  Default CI preset — harness probe only.
+  Activate with -Danchor.rewrite.preset=com.anchor.migration.presets.Smoke
+tags:
+  - anchor-migration
+  - preset
+recipeFamily: harness
+recipeList:
+  - com.anchor.migration.rewrite.smoke.AddAnchorProbeComment

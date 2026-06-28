@@ -7,6 +7,10 @@ import org.openrewrite.java.ChangeType;
 
 /**
  * ADR-008 M1 / L1 — mechanical {@code java.util.Vector} → {@code java.util.ArrayList} swap.
+ *
+ * <p>Prefer preset {@code com.anchor.migration.presets.LanguageL1Only} or YAML composite
+ * {@code com.anchor.migration.rewrite.lang.LanguageModernizationL1} (Vector + Hashtable +
+ * StringBuffer). This class remains for narrow unit tests and SPI registration.
  */
 public class VectorToArrayList extends Recipe {
 

@@ -30,6 +30,7 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] Session→Service recipe chain (3.2) — [docs/session-bean-to-spring-service-account-controller.md](docs/session-bean-to-spring-service-account-controller.md)
 - [x] CMP→JPA scalar entity (3.3) — [docs/cmp-scalar-entity-to-jpa-account-bean.md](docs/cmp-scalar-entity-to-jpa-account-bean.md)
 - [x] L1 `Vector`→`ArrayList` (ADR-008 M1) — [docs/vector-to-arraylist-l1.md](docs/vector-to-arraylist-l1.md)
+- [x] Preset manifests + YAML composites (ADR-009) — [docs/rewrite-presets.md](docs/rewrite-presets.md)
 
 
 
@@ -103,7 +104,11 @@ First run downloads the Maven image and dependencies (~1–2 min). Later runs re
 
 # Single test class
 
-.\scripts\run-mvn.ps1 -MavenArgs @("-B", "test", "-Dtest=AddAnchorProbeCommentTest")
+.\scripts\run-mvn.ps1 -MavenArgs @("-B", "test", "-Dtest=PresetCatalogTest")
+
+# Run a migration preset (after install, on a target project or this repo)
+
+.\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.DukesBankStackMigration -MavenArgs @("-B", "rewrite:run")
 
 ```
 
@@ -175,11 +180,11 @@ Source and `target/` are bind-mounted from the repo checkout. Only Maven depende
 
 
 
-## Run smoke recipe on another project
+## Run presets on another project
 
 
 
-After `install`, depend on this artifact from a target project and activate `AddAnchorProbeComment` in that project's `rewrite-maven-plugin` config. Build/install via Docker:
+After `install`, depend on this artifact and set `anchor.rewrite.preset` (see [docs/rewrite-presets.md](docs/rewrite-presets.md)). Build/install via Docker:
 
 
 
@@ -191,7 +196,7 @@ After `install`, depend on this artifact from a target project and activate `Add
 
 
 
-Then in the target repo (host or its own container): `mvn rewrite:run`.
+Then in the target repo: `mvn rewrite:run -Danchor.rewrite.preset=com.anchor.migration.presets.DukesBankStackMigration`.
 
 
 
@@ -203,6 +208,10 @@ Then in the target repo (host or its own container): `mvn rewrite:run`.
 
 scripts/                     Docker entrypoints (run-test, run-mvn)
 
+src/main/resources/META-INF/rewrite/
+  language-modernization-l1.yml   L1 YAML composite
+  presets/                        Ordered preset chains (ADR-009)
+
 docker-compose.yml           Maven service + dependency cache volume
 
 src/main/java/.../smoke/     Harness recipes
@@ -210,8 +219,9 @@ src/main/java/.../smoke/     Harness recipes
 src/test/java/.../           rewrite-test fixtures
 
 docs/recipe-families.md      Family + tier registry
+docs/rewrite-presets.md      Preset catalog + activation
 
-rewrite.yml                  Active recipe specs
+rewrite.yml                  Root smoke recipe spec (legacy); prefer presets/
 
 ```
 

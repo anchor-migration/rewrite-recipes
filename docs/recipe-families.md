@@ -25,16 +25,28 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 | [cmp-scalar-entity-to-jpa-account-bean.md](cmp-scalar-entity-to-jpa-account-bean.md) | ✅ 3.3 |
 | `CmpManyToManyToJpa` | 📋 v0.4 |
 
+## Presets (ADR-009)
+
+| Preset | Chain |
+|--------|-------|
+| `com.anchor.migration.presets.Smoke` | Harness probe (default CI) |
+| `com.anchor.migration.presets.LanguageL1Only` | `LanguageModernizationL1` YAML composite |
+| `com.anchor.migration.presets.DukesBankStackMigration` | L1 → Session→Service → CMP→JPA |
+
+Details: [rewrite-presets.md](rewrite-presets.md)
+
 ## Language modernization (ADR-008)
 
 | Artifact | Status |
 |----------|--------|
-| [vector-to-arraylist-l1.md](vector-to-arraylist-l1.md) | ✅ M1 / L1 |
+| [vector-to-arraylist-l1.md](vector-to-arraylist-l1.md) | ✅ M1 / L1 (prefer `LanguageModernizationL1` YAML) |
 | L2 homogeneous raw `ArrayList` typing | 📋 M3 |
 | L3 tuple list → result class | 📋 M4 |
 
 ## Recommended run order
 
-1. **L1** language modernization (when available)
-2. **Stack** migration recipes (BeanState, JPA entity)
+Use preset **`com.anchor.migration.presets.DukesBankStackMigration`** for the full Duke's Bank stack, or compose manually:
+
+1. **L1** — `LanguageL1Only` preset (or `LanguageModernizationL1`)
+2. **Stack** — session + CMP recipes
 3. **L2/L3** after list classifier report (ADR-008 M2)

@@ -15,6 +15,8 @@
         <maven.compiler.release>17</maven.compiler.release>
         <rewrite-bom.version>8.85.6</rewrite-bom.version>
         <junit.version>5.11.3</junit.version>
+        <!-- Override: -Danchor.rewrite.preset=com.anchor.migration.presets.DukesBankStackMigration -->
+        <anchor.rewrite.preset>com.anchor.migration.presets.Smoke</anchor.rewrite.preset>
     </properties>
 
     <dependencyManagement>
@@ -81,7 +83,7 @@
                 <version>6.42.0</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>com.anchor.migration.rewrite.smoke.AddAnchorProbeComment</recipe>
+                        <recipe>${anchor.rewrite.preset}</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>

@@ -1,0 +1,21 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.presets.DukesBankStackMigration
+displayName: Duke's Bank stack migration
+description: |
+  Ordered preset for Duke's Bank Phase D (ADR-007 + ADR-008):
+  1. Language L1 (legacy collections)
+  2. Session → Service + BeanState
+  3. CMP scalar AccountBean → JPA
+  Order is significant — do not reorder without ADR review.
+tags:
+  - anchor-migration
+  - preset
+  - stack-migration
+  - dukesbank
+recipeFamily: stack-migration
+requiresLinkedDb: false
+recipeList:
+  - com.anchor.migration.rewrite.lang.LanguageModernizationL1
+  - com.anchor.migration.rewrite.session.SessionBeanToSpringService
+  - com.anchor.migration.rewrite.cmp.CmpScalarEntityToJpa

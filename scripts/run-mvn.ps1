@@ -11,13 +11,18 @@
 .PARAMETER MavenArgs
   Arguments passed to mvn (default: -B test).
 
+.PARAMETER Preset
+  Sets -Danchor.rewrite.preset=... for rewrite-maven-plugin (see docs/rewrite-presets.md).
+
 .EXAMPLE
   .\scripts\run-mvn.ps1
   .\scripts\run-mvn.ps1 -MavenArgs @("-B", "test", "-Dtest=AddAnchorProbeCommentTest")
+  .\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.DukesBankStackMigration -MavenArgs @("-B", "rewrite:run")
   .\scripts\run-mvn.ps1 -MavenArgs @("-B", "install", "-DskipTests")
 #>
 param(
-    [string[]]$MavenArgs = @("-B", "test")
+    [string[]]$MavenArgs = @("-B", "test"),
+    [string]$Preset = $null
 )
 
 $ErrorActionPreference = "Stop"
@@ -37,6 +42,9 @@ $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 Push-Location $RepoRoot
 try {
     Assert-DockerRunning
+    if ($Preset) {
+        $MavenArgs += "-Danchor.rewrite.preset=$Preset"
+    }
     Write-Host "==> rewrite-recipes (Docker Maven)" -ForegroundColor Cyan
     Write-Host "    mvn $($MavenArgs -join ' ')" -ForegroundColor DarkGray
     docker compose run --rm mvn mvn @MavenArgs
