@@ -34,6 +34,7 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] L3 tuple list → result class (ADR-008 M4, proposal + approved apply) — [docs/tuple-list-l3.md](docs/tuple-list-l3.md)
 - [x] Preset manifests + YAML composites (ADR-009) — [docs/rewrite-presets.md](docs/rewrite-presets.md)
 - [x] **16** `rewrite-test` cases (Docker CI parity)
+- [x] On-disk single-file apply — `ApplyRecipeMain` (see [cmp-scalar doc](docs/cmp-scalar-entity-to-jpa-account-bean.md))
 
 
 
