@@ -17,3 +17,5 @@ com.anchor.migration.rewrite.cmp.CmpScalarEntityToJpa
 com.anchor.migration.rewrite.lang.VectorToArrayList
 
 com.anchor.migration.rewrite.lang.HomogeneousRawListTyping
+
+com.anchor.migration.rewrite.lang.TupleListToResultClass

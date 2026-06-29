@@ -24,6 +24,7 @@ Presets are **ordered recipe chains** declared in YAML under `src/main/resources
 | `com.anchor.migration.presets.Smoke` | Default CI — harness probe only |
 | `com.anchor.migration.presets.LanguageL1Only` | ADR-008 L1 mechanical API swaps |
 | `com.anchor.migration.presets.LanguageL2Only` | ADR-008 L2 homogeneous raw `ArrayList` typing |
+| `com.anchor.migration.presets.LanguageL3Only` | ADR-008 L3 tuple list → result class (proposal mode) |
 | `com.anchor.migration.presets.DukesBankStackMigration` | L1 → Session→Service → CMP→JPA (Duke's Bank Phase D) |
 
 ---
@@ -84,6 +85,7 @@ Prefer YAML `recipeList` composites for mechanical chains (e.g. `LanguageModerni
 |-------|------|
 | L1 YAML composite | `LanguageModernizationL1Test` |
 | L2 homogeneous typing | `HomogeneousRawListTypingTest` |
+| L3 tuple proposals | `TupleListToResultClassTest` |
 | All presets resolve | `PresetCatalogTest` |
 | Duke's Bank stack order | `PresetCatalogTest#dukesBankStackPresetHasOrderedChainLength` |
 

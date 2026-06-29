@@ -62,4 +62,4 @@ Run: `.\scripts\run-test.ps1` (14 tests)
 
 ## 5. Next
 
-ADR-008 M4 — L3 tuple list → result class (proposal-only recipe + human review).
+ADR-008 M4 L3 — [tuple-list-l3.md](tuple-list-l3.md) for tuple sites (`LanguageL3Only` preset, proposal-first).

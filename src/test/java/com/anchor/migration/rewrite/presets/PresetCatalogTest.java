@@ -22,6 +22,7 @@ class PresetCatalogTest {
             "com.anchor.migration.presets.Smoke",
             "com.anchor.migration.presets.LanguageL1Only",
             "com.anchor.migration.presets.LanguageL2Only",
+            "com.anchor.migration.presets.LanguageL3Only",
             "com.anchor.migration.presets.DukesBankStackMigration");
 
     @Test

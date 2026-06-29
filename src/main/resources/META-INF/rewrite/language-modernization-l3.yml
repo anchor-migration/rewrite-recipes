@@ -1,0 +1,13 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.rewrite.lang.LanguageModernizationL3
+displayName: Language modernization L3 (tuple list → result class)
+description: |
+  ADR-008 tier L3 — proposes result classes for tuple ArrayList sites.
+  Default is proposal-only; set applyApproved and approvedProposalsPath to apply human-reviewed names.
+tags:
+  - anchor-migration
+  - language-modernization
+  - tier-L3
+recipeList:
+  - com.anchor.migration.rewrite.lang.TupleListToResultClass

@@ -31,8 +31,9 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] CMP→JPA scalar entity (3.3) — [docs/cmp-scalar-entity-to-jpa-account-bean.md](docs/cmp-scalar-entity-to-jpa-account-bean.md)
 - [x] L1 `Vector`→`ArrayList` (ADR-008 M1) — [docs/vector-to-arraylist-l1.md](docs/vector-to-arraylist-l1.md)
 - [x] L2 homogeneous raw `ArrayList` typing (ADR-008 M3) — [docs/homogeneous-raw-list-l2.md](docs/homogeneous-raw-list-l2.md)
+- [x] L3 tuple list → result class (ADR-008 M4, proposal + approved apply) — [docs/tuple-list-l3.md](docs/tuple-list-l3.md)
 - [x] Preset manifests + YAML composites (ADR-009) — [docs/rewrite-presets.md](docs/rewrite-presets.md)
-- [x] **14** `rewrite-test` cases (Docker CI parity)
+- [x] **16** `rewrite-test` cases (Docker CI parity)
 
 
 
@@ -115,6 +116,7 @@ First run downloads the Maven image and dependencies (~1–2 min). Later runs re
 # Language modernization only
 .\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.LanguageL1Only -MavenArgs @("-B", "rewrite:run")
 .\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.LanguageL2Only -MavenArgs @("-B", "rewrite:run")
+.\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.LanguageL3Only -MavenArgs @("-B", "rewrite:run")
 
 ```
 
@@ -217,9 +219,10 @@ scripts/                     Docker entrypoints (run-test, run-mvn)
 src/main/resources/META-INF/rewrite/
   language-modernization-l1.yml   L1 YAML composite (Vector, Hashtable, StringBuffer)
   language-modernization-l2.yml   L2 YAML composite (homogeneous ArrayList typing)
+  language-modernization-l3.yml L3 YAML composite (tuple list → result class)
   presets/                        Ordered preset chains (ADR-009)
 
-src/main/java/.../lang/       Language modernization L1/L2 recipes
+src/main/java/.../lang/       Language modernization L1/L2/L3 recipes
 src/main/java/.../session/    Session→Service (BeanState) recipes
 src/main/java/.../cmp/        CMP→JPA recipes
 src/main/java/.../smoke/      Harness recipes
@@ -229,6 +232,7 @@ src/test/java/.../           rewrite-test fixtures
 docs/recipe-families.md      Family + tier registry (L1/L2/L3)
 docs/rewrite-presets.md      Preset catalog + activation
 docs/homogeneous-raw-list-l2.md  ADR-008 M3 L2 recipe
+docs/tuple-list-l3.md              ADR-008 M4 L3 recipe
 
 docker-compose.yml           Maven service + dependency cache volume
 

@@ -1,0 +1,14 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.presets.LanguageL3Only
+displayName: Language modernization L3 only (proposal mode)
+description: |
+  ADR-008 M4 — tuple list → result class proposals.
+  Set proposalOutputPath on TupleListToResultClass; review JSON before applyApproved run.
+tags:
+  - anchor-migration
+  - preset
+  - language-modernization
+recipeFamily: language-modernization
+recipeList:
+  - com.anchor.migration.rewrite.lang.LanguageModernizationL3
