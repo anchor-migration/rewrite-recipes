@@ -19,7 +19,7 @@
 | Raw `ArrayList` → `ArrayList<E>` on **homogeneous** sites | Tuple lists (`add` / cast evidence disagrees) |
 | Method return types, local variable types, `new ArrayList<>()` initializers | `Vector` / `Hashtable` (L1) |
 | Inline LST analysis (mirrors M2 `classify-lists` rules) | Inter-procedural analysis beyond return-type propagation |
-| Optional gate via `--analysis-report` JSON from `classify-lists` | L3 tuple → result class (M4) |
+| Optional gate via `--analysis-report` JSON from `classify-lists` | L3 tuple → result class (see [tuple-list-l3.md](tuple-list-l3.md)) |
 
 **Modernization tier:** L2 — adds generic type parameters where add/cast evidence agrees on one element type.
 
@@ -56,7 +56,7 @@ When `analysisReportPath` is set on `HomogeneousRawListTyping`, only sites liste
 | `ListUsageReportReaderTest` | ✅ |
 | `PresetCatalogTest` resolves `LanguageL2Only` | ✅ |
 
-Run: `.\scripts\run-test.ps1` (14 tests)
+Run: `.\scripts\run-test.ps1` (16 tests — full catalog)
 
 ---
 

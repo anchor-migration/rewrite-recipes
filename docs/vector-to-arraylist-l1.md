@@ -46,4 +46,4 @@ Run: `.\scripts\run-test.ps1`
 
 ## 4. Next
 
-ADR-008 M3 L2 — [homogeneous-raw-list-l2.md](homogeneous-raw-list-l2.md) (`LanguageL2Only` preset). Run [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) first on production targets.
+ADR-008 language modernization chain: L1 → L2 ([homogeneous-raw-list-l2.md](homogeneous-raw-list-l2.md)) → L3 ([tuple-list-l3.md](tuple-list-l3.md)). Run [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) before L2/L3 on production targets.
