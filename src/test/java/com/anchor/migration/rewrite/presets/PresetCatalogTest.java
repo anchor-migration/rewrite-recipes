@@ -21,6 +21,7 @@ class PresetCatalogTest {
     private static final List<String> PRESET_NAMES = List.of(
             "com.anchor.migration.presets.Smoke",
             "com.anchor.migration.presets.LanguageL1Only",
+            "com.anchor.migration.presets.LanguageL2Only",
             "com.anchor.migration.presets.DukesBankStackMigration");
 
     @Test

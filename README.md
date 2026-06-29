@@ -30,7 +30,9 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] Session→Service recipe chain (3.2) — [docs/session-bean-to-spring-service-account-controller.md](docs/session-bean-to-spring-service-account-controller.md)
 - [x] CMP→JPA scalar entity (3.3) — [docs/cmp-scalar-entity-to-jpa-account-bean.md](docs/cmp-scalar-entity-to-jpa-account-bean.md)
 - [x] L1 `Vector`→`ArrayList` (ADR-008 M1) — [docs/vector-to-arraylist-l1.md](docs/vector-to-arraylist-l1.md)
+- [x] L2 homogeneous raw `ArrayList` typing (ADR-008 M3) — [docs/homogeneous-raw-list-l2.md](docs/homogeneous-raw-list-l2.md)
 - [x] Preset manifests + YAML composites (ADR-009) — [docs/rewrite-presets.md](docs/rewrite-presets.md)
+- [x] **14** `rewrite-test` cases (Docker CI parity)
 
 
 
@@ -109,6 +111,10 @@ First run downloads the Maven image and dependencies (~1–2 min). Later runs re
 # Run a migration preset (after install, on a target project or this repo)
 
 .\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.DukesBankStackMigration -MavenArgs @("-B", "rewrite:run")
+
+# Language modernization only
+.\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.LanguageL1Only -MavenArgs @("-B", "rewrite:run")
+.\scripts\run-mvn.ps1 -Preset com.anchor.migration.presets.LanguageL2Only -MavenArgs @("-B", "rewrite:run")
 
 ```
 
@@ -209,19 +215,22 @@ Then in the target repo: `mvn rewrite:run -Danchor.rewrite.preset=com.anchor.mig
 scripts/                     Docker entrypoints (run-test, run-mvn)
 
 src/main/resources/META-INF/rewrite/
-  language-modernization-l1.yml   L1 YAML composite
+  language-modernization-l1.yml   L1 YAML composite (Vector, Hashtable, StringBuffer)
+  language-modernization-l2.yml   L2 YAML composite (homogeneous ArrayList typing)
   presets/                        Ordered preset chains (ADR-009)
 
-docker-compose.yml           Maven service + dependency cache volume
-
-src/main/java/.../smoke/     Harness recipes
+src/main/java/.../lang/       Language modernization L1/L2 recipes
+src/main/java/.../session/    Session→Service (BeanState) recipes
+src/main/java/.../cmp/        CMP→JPA recipes
+src/main/java/.../smoke/      Harness recipes
 
 src/test/java/.../           rewrite-test fixtures
 
-docs/recipe-families.md      Family + tier registry
+docs/recipe-families.md      Family + tier registry (L1/L2/L3)
 docs/rewrite-presets.md      Preset catalog + activation
+docs/homogeneous-raw-list-l2.md  ADR-008 M3 L2 recipe
 
-rewrite.yml                  Root smoke recipe spec (legacy); prefer presets/
+docker-compose.yml           Maven service + dependency cache volume
 
 ```
 

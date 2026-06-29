@@ -1,0 +1,14 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.presets.LanguageL2Only
+displayName: Language modernization L2 only
+description: |
+  ADR-008 M3 — homogeneous raw ArrayList typing.
+  Run java-ast-ssot classify-lists on target sources before applying.
+tags:
+  - anchor-migration
+  - preset
+  - language-modernization
+recipeFamily: language-modernization
+recipeList:
+  - com.anchor.migration.rewrite.lang.LanguageModernizationL2

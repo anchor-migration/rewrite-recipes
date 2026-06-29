@@ -1,0 +1,11 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.anchor.migration.rewrite.lang.LanguageModernizationL2
+displayName: Language modernization L2 (homogeneous ArrayList typing)
+description: ADR-008 tier L2 — adds generic parameters to raw ArrayList sites classified as homogeneous. Run classify-lists first on target files.
+tags:
+  - anchor-migration
+  - language-modernization
+  - tier-L2
+recipeList:
+  - com.anchor.migration.rewrite.lang.HomogeneousRawListTyping

@@ -46,4 +46,4 @@ Run: `.\scripts\run-test.ps1`
 
 ## 4. Next
 
-ADR-008 M3 — L2 homogeneous recipe; run [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) first and skip `tuple` sites.
+ADR-008 M3 L2 — [homogeneous-raw-list-l2.md](homogeneous-raw-list-l2.md) (`LanguageL2Only` preset). Run [`classify-lists`](https://github.com/anchor-migration/java-ast-ssot/blob/main/docs/list-usage-classifier.md) first on production targets.
