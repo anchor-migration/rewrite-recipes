@@ -14,6 +14,8 @@ com.anchor.migration.rewrite.session.SessionBeanToSpringService
 
 com.anchor.migration.rewrite.cmp.CmpScalarEntityToJpa
 
+com.anchor.migration.rewrite.cmp.CmpManyToManyToJpa
+
 com.anchor.migration.rewrite.lang.VectorToArrayList
 
 com.anchor.migration.rewrite.lang.HomogeneousRawListTyping

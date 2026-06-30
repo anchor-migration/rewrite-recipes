@@ -23,7 +23,7 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 | [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md) | ✅ 3.1b |
 | [session-bean-to-spring-service-account-controller.md](session-bean-to-spring-service-account-controller.md) | ✅ 3.2 |
 | [cmp-scalar-entity-to-jpa-account-bean.md](cmp-scalar-entity-to-jpa-account-bean.md) | ✅ 3.3 |
-| `CmpManyToManyToJpa` | 📋 v0.4 |
+| `CmpManyToManyToJpa` | ✅ v0.4a |
 
 ## Presets (ADR-009)
 
