@@ -63,13 +63,22 @@ public class CmpScalarEntityToJpa extends Recipe {
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
+        CmpEntitySupport.EntityProfile profile =
+                CmpEntitySupport.entityProfile(targetClassName).orElse(null);
+        String effectiveTable = profile != null ? profile.tableName() : tableName;
+        List<CmpFieldMapping> scalarFields =
+                profile != null ? profile.scalarFields() : CmpEntitySupport.ACCOUNT_BEAN_SCALAR_FIELDS;
+        List<String> effectiveRelationshipFields =
+                profile != null ? profile.relationshipFieldNames() : relationshipFieldNames;
+        List<String> effectiveCmrBusinessMethods =
+                profile != null ? profile.cmrBusinessMethodNames() : cmrBusinessMethodNames;
         return new CmpScalarEntityToJpaVisitor(
                 targetClassName,
-                tableName,
-                CmpEntitySupport.ACCOUNT_BEAN_SCALAR_FIELDS,
-                new HashSet<>(relationshipFieldNames),
+                effectiveTable,
+                scalarFields,
+                new HashSet<>(effectiveRelationshipFields),
                 new HashSet<>(entityBeanLifecycleMethodNames),
-                new HashSet<>(cmrBusinessMethodNames));
+                new HashSet<>(effectiveCmrBusinessMethods));
     }
 
     static final class CmpScalarEntityToJpaVisitor extends JavaIsoVisitor<ExecutionContext> {

@@ -82,7 +82,8 @@ Persistence API: **`javax.persistence`** (JPA 2.x target for legacy stack migrat
 |--------|---------|
 | `CmpManyToManyToJpa` | `customers` + `CUSTOMER_ACCOUNT_XREF` |
 | `CmpForeignKeyToJpa` | `TxBean.account` FK (`account_id`) |
-| `CmpScalarEntityToJpa` (reuse) | `CustomerBean`, `TxBean` after relationship recipes |
+| `CmpScalarEntityToJpa` (TxBean) | v0.4c — 5 scalar fields on `TX` table |
+| `CmpScalarEntityToJpa` (reuse) | `CustomerBean` |
 | `NextIdToSequence` | `NextIdBean` |
 
 ---

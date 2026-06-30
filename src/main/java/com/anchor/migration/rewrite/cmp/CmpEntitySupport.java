@@ -7,6 +7,7 @@ import org.openrewrite.java.tree.Statement;
 import org.openrewrite.java.tree.TypeTree;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -23,7 +24,16 @@ final class CmpEntitySupport {
             new CmpFieldMapping("beginBalance", "begin_balance", "BigDecimal", false),
             new CmpFieldMapping("beginBalanceTimeStamp", "begin_balance_time_stamp", "java.util.Date", false));
 
+    static final List<CmpFieldMapping> TX_BEAN_SCALAR_FIELDS = List.of(
+            new CmpFieldMapping("txId", "tx_id", "String", true),
+            new CmpFieldMapping("timeStamp", "time_stamp", "java.util.Date", false),
+            new CmpFieldMapping("amount", "amount", "BigDecimal", false),
+            new CmpFieldMapping("balance", "balance", "BigDecimal", false),
+            new CmpFieldMapping("description", "description", "String", false));
+
     static final List<String> DEFAULT_RELATIONSHIP_FIELD_NAMES = List.of("customers");
+
+    static final List<String> TX_BEAN_RELATIONSHIP_FIELD_NAMES = List.of("account");
 
     static final List<String> DEFAULT_ENTITY_BEAN_LIFECYCLE_METHODS = List.of(
             "ejbCreate",
@@ -39,6 +49,32 @@ final class CmpEntitySupport {
     static final List<String> DEFAULT_CMR_BUSINESS_METHOD_NAMES = List.of(
             "addCustomer",
             "removeCustomer");
+
+    record EntityProfile(
+            String tableName,
+            List<CmpFieldMapping> scalarFields,
+            List<String> relationshipFieldNames,
+            List<String> cmrBusinessMethodNames) {}
+
+    static Optional<EntityProfile> entityProfile(String targetClassName) {
+        return switch (targetClassName) {
+            case "AccountBean" ->
+                    Optional.of(
+                            new EntityProfile(
+                                    "ACCOUNT",
+                                    ACCOUNT_BEAN_SCALAR_FIELDS,
+                                    DEFAULT_RELATIONSHIP_FIELD_NAMES,
+                                    DEFAULT_CMR_BUSINESS_METHOD_NAMES));
+            case "TxBean" ->
+                    Optional.of(
+                            new EntityProfile(
+                                    "TX",
+                                    TX_BEAN_SCALAR_FIELDS,
+                                    TX_BEAN_RELATIONSHIP_FIELD_NAMES,
+                                    List.of()));
+            default -> Optional.empty();
+        };
+    }
 
     private CmpEntitySupport() {
     }

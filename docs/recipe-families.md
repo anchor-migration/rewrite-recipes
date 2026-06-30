@@ -23,6 +23,7 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 | [session-beanstate-spike-account-controller.md](session-beanstate-spike-account-controller.md) | ✅ 3.1b |
 | [session-bean-to-spring-service-account-controller.md](session-bean-to-spring-service-account-controller.md) | ✅ 3.2 |
 | [cmp-scalar-entity-to-jpa-account-bean.md](cmp-scalar-entity-to-jpa-account-bean.md) | ✅ 3.3 |
+| [cmp-scalar-entity-to-jpa-tx-bean.md](cmp-scalar-entity-to-jpa-tx-bean.md) | ✅ v0.4c |
 | `CmpManyToManyToJpa` | ✅ v0.4a |
 | `CmpForeignKeyToJpa` | ✅ v0.4b |
 
