@@ -61,6 +61,12 @@ public class CmpScalarEntityToJpa extends Recipe {
                 + "Removes CMR accessors, EntityBean lifecycle, and CMR-dependent business methods.";
     }
 
+    /** E2E / CLI helper — selects a built-in entity profile by simple class name. */
+    public CmpScalarEntityToJpa targeting(String className) {
+        this.targetClassName = className;
+        return this;
+    }
+
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
         CmpEntitySupport.EntityProfile profile =

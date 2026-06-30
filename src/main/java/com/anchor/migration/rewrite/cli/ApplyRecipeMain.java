@@ -1,5 +1,7 @@
 package com.anchor.migration.rewrite.cli;
 
+import com.anchor.migration.rewrite.cmp.CmpForeignKeyToJpa;
+import com.anchor.migration.rewrite.cmp.CmpManyToManyToJpa;
 import com.anchor.migration.rewrite.cmp.CmpScalarEntityToJpa;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.InMemoryExecutionContext;
@@ -13,26 +15,32 @@ import org.openrewrite.java.JavaParser;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Apply a single OpenRewrite recipe to one {@code .java} file on disk (ADR-007 §3.3 E2E helper).
+ *
+ * <p>Usage: {@code ApplyRecipeMain <recipe-name> <path-to-java-file> [targetClassName]}
  */
 public final class ApplyRecipeMain {
 
-    private static final Map<String, Recipe> RECIPES = Map.of("CmpScalarEntityToJpa", new CmpScalarEntityToJpa());
+    private static final List<String> RECIPE_NAMES =
+            List.of("CmpScalarEntityToJpa", "CmpManyToManyToJpa", "CmpForeignKeyToJpa");
 
     private ApplyRecipeMain() {}
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
-            System.err.println("Usage: ApplyRecipeMain <recipe-name> <path-to-java-file>");
-            System.err.println("Recipes: " + RECIPES.keySet());
+        if (args.length < 2 || args.length > 3) {
+            System.err.println("Usage: ApplyRecipeMain <recipe-name> <path-to-java-file> [targetClassName]");
+            System.err.println("Recipes: " + RECIPE_NAMES);
+            System.err.println("Optional targetClassName applies to CmpScalarEntityToJpa (e.g. TxBean, CustomerBean).");
             System.exit(1);
         }
 
-        Recipe recipe = RECIPES.get(args[0]);
+        String targetClassName = args.length == 3 ? args[2] : null;
+        Recipe recipe = resolveRecipe(args[0], targetClassName);
         if (recipe == null) {
             System.err.println("Unknown recipe: " + args[0]);
             System.exit(1);
@@ -75,5 +83,20 @@ public final class ApplyRecipeMain {
         if (!changed) {
             System.out.println("No changes: " + file);
         }
+    }
+
+    static Recipe resolveRecipe(String name, String targetClassName) {
+        return switch (name) {
+            case "CmpScalarEntityToJpa" -> {
+                CmpScalarEntityToJpa recipe = new CmpScalarEntityToJpa();
+                if (targetClassName != null && !targetClassName.isBlank()) {
+                    recipe.targeting(targetClassName);
+                }
+                yield recipe;
+            }
+            case "CmpManyToManyToJpa" -> new CmpManyToManyToJpa();
+            case "CmpForeignKeyToJpa" -> new CmpForeignKeyToJpa();
+            default -> null;
+        };
     }
 }

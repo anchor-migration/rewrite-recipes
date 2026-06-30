@@ -15,8 +15,7 @@ class CustomerBeanCmpToJpaTest implements RewriteTest {
 
     @Override
     public void defaults(RecipeSpec spec) {
-        CmpScalarEntityToJpa recipe = new CmpScalarEntityToJpa();
-        recipe.targetClassName = "CustomerBean";
+        CmpScalarEntityToJpa recipe = new CmpScalarEntityToJpa().targeting("CustomerBean");
         spec.recipe(recipe)
                 .parser(JavaParser.fromJavaVersion())
                 .typeValidationOptions(TypeValidation.none())
