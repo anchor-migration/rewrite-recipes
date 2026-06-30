@@ -55,19 +55,18 @@ class AccountBeanCmpManyToManyTest implements RewriteTest {
                             public String getAccountId() {
                                 return accountId;
                             }
-
                             @javax.persistence.ManyToMany
                             @javax.persistence.JoinTable(
                                     name = "CUSTOMER_ACCOUNT_XREF",
                                     joinColumns = @javax.persistence.JoinColumn(name = "ACCOUNT_ID"),
                                     inverseJoinColumns = @javax.persistence.JoinColumn(name = "CUSTOMER_ID"))
-                            private java.util.Collection customers;
+                            private Collection customers;
 
-                            public java.util.Collection getCustomers() {
+                            public Collection getCustomers() {
                                 return customers;
                             }
 
-                            public void setCustomers(java.util.Collection customers) {
+                            public void setCustomers(Collection customers) {
                                 this.customers = customers;
                             }
                         }
