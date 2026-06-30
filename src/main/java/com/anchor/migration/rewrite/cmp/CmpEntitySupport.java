@@ -31,9 +31,23 @@ final class CmpEntitySupport {
             new CmpFieldMapping("balance", "balance", "BigDecimal", false),
             new CmpFieldMapping("description", "description", "String", false));
 
+    static final List<CmpFieldMapping> CUSTOMER_BEAN_SCALAR_FIELDS = List.of(
+            new CmpFieldMapping("customerId", "customer_id", "String", true),
+            new CmpFieldMapping("lastName", "last_name", "String", false),
+            new CmpFieldMapping("firstName", "first_name", "String", false),
+            new CmpFieldMapping("middleInitial", "middle_initial", "String", false),
+            new CmpFieldMapping("street", "street", "String", false),
+            new CmpFieldMapping("city", "city", "String", false),
+            new CmpFieldMapping("state", "state", "String", false),
+            new CmpFieldMapping("zip", "zip", "String", false),
+            new CmpFieldMapping("phone", "phone", "String", false),
+            new CmpFieldMapping("email", "email", "String", false));
+
     static final List<String> DEFAULT_RELATIONSHIP_FIELD_NAMES = List.of("customers");
 
     static final List<String> TX_BEAN_RELATIONSHIP_FIELD_NAMES = List.of("account");
+
+    static final List<String> CUSTOMER_BEAN_RELATIONSHIP_FIELD_NAMES = List.of("accounts");
 
     static final List<String> DEFAULT_ENTITY_BEAN_LIFECYCLE_METHODS = List.of(
             "ejbCreate",
@@ -71,6 +85,13 @@ final class CmpEntitySupport {
                                     "TX",
                                     TX_BEAN_SCALAR_FIELDS,
                                     TX_BEAN_RELATIONSHIP_FIELD_NAMES,
+                                    List.of()));
+            case "CustomerBean" ->
+                    Optional.of(
+                            new EntityProfile(
+                                    "CUSTOMER",
+                                    CUSTOMER_BEAN_SCALAR_FIELDS,
+                                    CUSTOMER_BEAN_RELATIONSHIP_FIELD_NAMES,
                                     List.of()));
             default -> Optional.empty();
         };
