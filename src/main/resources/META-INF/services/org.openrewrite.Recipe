@@ -18,6 +18,8 @@ com.anchor.migration.rewrite.cmp.CmpManyToManyToJpa
 
 com.anchor.migration.rewrite.cmp.CmpForeignKeyToJpa
 
+com.anchor.migration.rewrite.cmp.NextIdTableToJpa
+
 com.anchor.migration.rewrite.lang.VectorToArrayList
 
 com.anchor.migration.rewrite.lang.HomogeneousRawListTyping

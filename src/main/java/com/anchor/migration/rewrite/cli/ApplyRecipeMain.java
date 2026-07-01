@@ -27,7 +27,11 @@ import java.util.Map;
 public final class ApplyRecipeMain {
 
     private static final List<String> RECIPE_NAMES =
-            List.of("CmpScalarEntityToJpa", "CmpManyToManyToJpa", "CmpForeignKeyToJpa");
+            List.of(
+                    "CmpScalarEntityToJpa",
+                    "CmpManyToManyToJpa",
+                    "CmpForeignKeyToJpa",
+                    "NextIdTableToJpa");
 
     private ApplyRecipeMain() {}
 
@@ -96,6 +100,7 @@ public final class ApplyRecipeMain {
             }
             case "CmpManyToManyToJpa" -> new CmpManyToManyToJpa();
             case "CmpForeignKeyToJpa" -> new CmpForeignKeyToJpa();
+            case "NextIdTableToJpa" -> new NextIdTableToJpa();
             default -> null;
         };
     }

@@ -230,7 +230,7 @@ Duke's Bank is **typical tutorial EJB 2.x CMP** — simpler than many enterprise
 | **v0.4a** | `CmpManyToManyToJpa` | `AccountBean`↔`CustomerBean` + xref |
 | **v0.4b** | `CmpForeignKeyToJpa` | `TxBean.account` ✅ |
 | **v0.4c** | `CmpScalarEntityToJpa` | `CustomerBean`, `TxBean` scalars ✅ |
-| **v0.4d** | `NextIdToSequence` or delete-after-migration | `NextIdBean` |
+| **v0.4d** | `NextIdTableToJpa` | `NextIdBean` table counter ✅ |
 | **v0.5** | `EjbQlToNamedQuery` | Finder queries |
 | **v0.5** | `RemoveEjbLocalHome` | Interface graph |
 

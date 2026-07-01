@@ -43,6 +43,10 @@ final class CmpEntitySupport {
             new CmpFieldMapping("phone", "phone", "String", false),
             new CmpFieldMapping("email", "email", "String", false));
 
+    static final List<CmpFieldMapping> NEXT_ID_BEAN_SCALAR_FIELDS = List.of(
+            new CmpFieldMapping("beanName", "beanName", "String", true),
+            new CmpFieldMapping("id", "id", "int", false));
+
     static final List<String> DEFAULT_RELATIONSHIP_FIELD_NAMES = List.of("customers");
 
     static final List<String> TX_BEAN_RELATIONSHIP_FIELD_NAMES = List.of("account");
@@ -92,6 +96,13 @@ final class CmpEntitySupport {
                                     "CUSTOMER",
                                     CUSTOMER_BEAN_SCALAR_FIELDS,
                                     CUSTOMER_BEAN_RELATIONSHIP_FIELD_NAMES,
+                                    List.of()));
+            case "NextIdBean" ->
+                    Optional.of(
+                            new EntityProfile(
+                                    "NEXT_ID",
+                                    NEXT_ID_BEAN_SCALAR_FIELDS,
+                                    List.of(),
                                     List.of()));
             default -> Optional.empty();
         };

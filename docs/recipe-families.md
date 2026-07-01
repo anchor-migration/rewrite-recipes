@@ -25,8 +25,10 @@ Each recipe declares metadata in `rewrite.yml` and/or Java `@Option` fields.
 | [cmp-scalar-entity-to-jpa-account-bean.md](cmp-scalar-entity-to-jpa-account-bean.md) | ✅ 3.3 |
 | [cmp-scalar-entity-to-jpa-tx-bean.md](cmp-scalar-entity-to-jpa-tx-bean.md) | ✅ v0.4c |
 | [cmp-scalar-entity-to-jpa-customer-bean.md](cmp-scalar-entity-to-jpa-customer-bean.md) | ✅ v0.4c |
+| [cmp-next-id-table-to-jpa-next-id-bean.md](cmp-next-id-table-to-jpa-next-id-bean.md) | ✅ v0.4d |
 | `CmpManyToManyToJpa` | ✅ v0.4a |
 | `CmpForeignKeyToJpa` | ✅ v0.4b |
+| `NextIdTableToJpa` | ✅ v0.4d |
 
 ## Presets (ADR-009)
 
