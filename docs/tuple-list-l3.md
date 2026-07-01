@@ -83,7 +83,7 @@
 | Approved apply on synthetic tuple fixture | ✅ |
 | `PresetCatalogTest` resolves `LanguageL3Only` | ✅ |
 
-Run: `.\scripts\run-test.ps1` (16 tests)
+Run: `.\scripts\run-test.ps1` (21 tests — full catalog)
 
 ---
 

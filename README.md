@@ -29,11 +29,15 @@ Deterministic **source transforms** using OpenRewrite LST at apply time ([ADR-00
 - [x] Session `BeanState` spike (3.1b) — [docs/session-beanstate-spike-account-controller.md](docs/session-beanstate-spike-account-controller.md)
 - [x] Session→Service recipe chain (3.2) — [docs/session-bean-to-spring-service-account-controller.md](docs/session-bean-to-spring-service-account-controller.md)
 - [x] CMP→JPA scalar entity (3.3) — [docs/cmp-scalar-entity-to-jpa-account-bean.md](docs/cmp-scalar-entity-to-jpa-account-bean.md)
+- [x] v0.4a `CmpManyToManyToJpa` — [docs/cmp-many-to-many-to-jpa-account-bean.md](docs/cmp-many-to-many-to-jpa-account-bean.md)
+- [x] v0.4b `CmpForeignKeyToJpa` — [docs/cmp-foreign-key-to-jpa-tx-bean.md](docs/cmp-foreign-key-to-jpa-tx-bean.md)
+- [x] v0.4c `CmpScalarEntityToJpa` — CustomerBean / TxBean profiles — [docs/cmp-scalar-entity-to-jpa-customer-bean.md](docs/cmp-scalar-entity-to-jpa-customer-bean.md), [docs/cmp-scalar-entity-to-jpa-tx-bean.md](docs/cmp-scalar-entity-to-jpa-tx-bean.md)
+- [x] v0.4d `NextIdTableToJpa` — [docs/cmp-next-id-table-to-jpa-next-id-bean.md](docs/cmp-next-id-table-to-jpa-next-id-bean.md)
 - [x] L1 `Vector`→`ArrayList` (ADR-008 M1) — [docs/vector-to-arraylist-l1.md](docs/vector-to-arraylist-l1.md)
 - [x] L2 homogeneous raw `ArrayList` typing (ADR-008 M3) — [docs/homogeneous-raw-list-l2.md](docs/homogeneous-raw-list-l2.md)
 - [x] L3 tuple list → result class (ADR-008 M4, proposal + approved apply) — [docs/tuple-list-l3.md](docs/tuple-list-l3.md)
 - [x] Preset manifests + YAML composites (ADR-009) — [docs/rewrite-presets.md](docs/rewrite-presets.md)
-- [x] **16** `rewrite-test` cases (Docker CI parity)
+- [x] **21** `rewrite-test` cases (Docker CI parity)
 - [x] On-disk single-file apply — `ApplyRecipeMain` (see [cmp-scalar doc](docs/cmp-scalar-entity-to-jpa-account-bean.md))
 
 
@@ -232,6 +236,7 @@ src/test/java/.../           rewrite-test fixtures
 
 docs/recipe-families.md      Family + tier registry (L1/L2/L3)
 docs/rewrite-presets.md      Preset catalog + activation
+docs/cmp-*.md                CMP→JPA recipes (3.3 + v0.4a–d)
 docs/homogeneous-raw-list-l2.md  ADR-008 M3 L2 recipe
 docs/tuple-list-l3.md              ADR-008 M4 L3 recipe
 

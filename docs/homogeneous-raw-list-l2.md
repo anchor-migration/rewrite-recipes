@@ -56,7 +56,7 @@ When `analysisReportPath` is set on `HomogeneousRawListTyping`, only sites liste
 | `ListUsageReportReaderTest` | ✅ |
 | `PresetCatalogTest` resolves `LanguageL2Only` | ✅ |
 
-Run: `.\scripts\run-test.ps1` (16 tests — full catalog)
+Run: `.\scripts\run-test.ps1` (21 tests — full catalog)
 
 ---
 

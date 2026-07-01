@@ -72,7 +72,7 @@ Persistence API: **`javax.persistence`** (JPA 2.x target for legacy stack migrat
 | `CmpScalarEntityToJpa` recipe | ✅ |
 | `AccountBeanCmpToJpaTest` | ✅ (`.\scripts\run-test.ps1`) |
 | Full on-disk `AccountBean.java` apply | ✅ `ApplyRecipeMain` + `run-e2e-jpa-parity.ps1` |
-| Re-export + JPA crosswalk + parity report | ✅ `run-e2e-jpa-parity.ps1` — JSON + HTML + `dukesbank-cmp-jpa` matrix |
+| Re-export + JPA crosswalk + parity report | ✅ `run-e2e-jpa-parity.ps1` — per-entity matrices (`dukesbank-cmp-jpa-multi-account.yaml`, etc.) |
 
 ---
 
